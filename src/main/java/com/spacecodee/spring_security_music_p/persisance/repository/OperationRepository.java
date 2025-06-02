@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OperationRepository extends JpaRepository<OperationEntity, Integer> {
 
-    @Query("SELECT o FROM OperationEntity o WHERE o.operationEnabled = true")
-    List<OperationEntity> findByPublicAcess();
+    @Query("SELECT o FROM OperationEntity o WHERE o.operationPermitAll = true")
+    List<OperationEntity> findByPublicAccess();
 
 }

@@ -509,6 +509,13 @@ values  (1, 'READ_ALL_PRODUCTS', '', 'GET', false, 1),
         (16, 'DELETE_NO_ACTIVE_TOKENS', '/delete-no-valid-tokens', 'DELETE', false, 4),
         (18, 'CREATE_ONE_USER_SYSTEM', '', 'POST', false, 5);
 
+
+insert into public.role (role_id, role_name)
+values  (1, 'CUSTOMER'),
+        (2, 'ASSISTANT_ADMINISTRATOR'),
+        (3, 'ADMINISTRATOR');
+
+
 insert into public.permission (permission_id, role_id, operation_id)
 values  (22, 1, 1),
         (23, 2, 1),
@@ -520,8 +527,3 @@ values  (22, 1, 1),
         (29, 2, 10),
         (30, 3, 1),
         (31, 3, 2);
-
-insert into public.role (role_id, role_name)
-values  (1, 'CUSTOMER'),
-        (2, 'ASSISTANT_ADMINISTRATOR'),
-        (3, 'ADMINISTRATOR');
