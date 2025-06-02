@@ -500,17 +500,24 @@ values  (1, 'READ_ALL_PRODUCTS', '', 'GET', false, 1),
         (7, 'READ_ALL_CATEGORIES', '', 'GET', false, 2),
         (8, 'CREATE_ONE_CATEGORY', '', 'POST', false, 2),
         (9, 'UPDATE_ONE_CATEGORY', '/[0-9]*', 'PUT', false, 2),
-        (10, 'DISABLE_ONE_CATEGORY', '/[0-9]*/disabled', 'PUT', false, 2);
+        (10, 'DISABLE_ONE_CATEGORY', '/[0-9]*/disabled', 'PUT', false, 2),
+        (11, 'READ_ALL_CUSTOMERS', '', 'GET', false, 3),
+        (12, 'REGISTER_ONE', '', 'POST', true, 3),
+        (13, 'AUTHENTICATE', '/authenticate', 'POST', true, 4),
+        (14, 'READ_MY_PROFILE', '/profile', 'GET', false, 4),
+        (15, 'VALIDATE_TOKEN', '/validate-token', 'GET', true, 4),
+        (16, 'DELETE_NO_ACTIVE_TOKENS', '/delete-no-valid-tokens', 'DELETE', false, 4),
+        (18, 'CREATE_ONE_USER_SYSTEM', '', 'POST', false, 5);
 
 insert into public.permission (permission_id, role_id, operation_id)
-values  (22, 1, 15),
+values  (22, 1, 1),
         (23, 2, 1),
         (24, 2, 2),
         (25, 2, 4),
         (26, 2, 6),
         (27, 2, 7),
         (28, 2, 9),
-        (29, 2, 15),
+        (29, 2, 10),
         (30, 3, 1),
         (31, 3, 2);
 
