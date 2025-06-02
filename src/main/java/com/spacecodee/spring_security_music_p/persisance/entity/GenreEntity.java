@@ -26,8 +26,8 @@ public class GenreEntity {
     private String genreName;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "genre_enable", nullable = false, length = 50 )
-    private GlobalStatusEnum genreEnable;
+    @Column(name = "genre_enabled", nullable = false, length = 50 )
+    private GlobalStatusEnum genreEnabled;
 
 
 
@@ -36,11 +36,11 @@ public class GenreEntity {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         GenreEntity that = (GenreEntity) object;
-        return genreId == that.genreId && Objects.equals(genreName, that.genreName) && Objects.equals(genreEnable, that.genreEnable);
+        return genreId == that.genreId && Objects.equals(genreName, that.genreName) && Objects.equals(genreEnabled, that.genreEnabled);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(genreId, genreName, genreEnable);
+        return Objects.hash(genreId, genreName, genreEnabled);
     }
 }

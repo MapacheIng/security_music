@@ -19,6 +19,6 @@ public interface GenreRepository extends JpaRepository<GenreEntity, Integer> {
 
     boolean existsByGenreName(String genreName);
 
-    boolean existsByGenreNameAndIdNot(String genreName, Integer id);
+    boolean existsByGenreNameAndGenreIdNot(String genreName, Integer genreId);
 
 }
