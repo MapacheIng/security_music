@@ -14,7 +14,7 @@
     <name>spring_security_music_p</name>
     <description>spring_security_music_p</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
 
         <org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
         <org.projectlombok.version>1.18.30</org.projectlombok.version>

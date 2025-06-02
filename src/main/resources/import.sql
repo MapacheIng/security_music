@@ -31,7 +31,7 @@ CREATE TABLE public.genre (
 );
 
 
-ALTER TABLE public.genre OWNER TO spacecodee;
+ALTER TABLE public.genre OWNER TO postgres;
 
 --
 -- Name: genre_genre_id_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -46,7 +46,7 @@ CREATE SEQUENCE public.genre_genre_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.genre_genre_id_seq OWNER TO spacecodee;
+ALTER TABLE public.genre_genre_id_seq OWNER TO postgres;
 
 --
 -- Name: genre_genre_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
@@ -68,7 +68,7 @@ CREATE TABLE public.jwt_token (
 );
 
 
-ALTER TABLE public.jwt_token OWNER TO spacecodee;
+ALTER TABLE public.jwt_token OWNER TO postgres;
 
 --
 -- Name: jwt_token_id_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -83,7 +83,7 @@ CREATE SEQUENCE public.jwt_token_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.jwt_token_id_seq OWNER TO spacecodee;
+ALTER TABLE public.jwt_token_id_seq OWNER TO postgres;
 
 --
 -- Name: jwt_token_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
@@ -103,7 +103,7 @@ CREATE TABLE public.module (
 );
 
 
-ALTER TABLE public.module OWNER TO spacecodee;
+ALTER TABLE public.module OWNER TO postgres;
 
 --
 -- Name: module_id_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -118,7 +118,7 @@ CREATE SEQUENCE public.module_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.module_id_seq OWNER TO spacecodee;
+ALTER TABLE public.module_id_seq OWNER TO postgres;
 
 --
 -- Name: module_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
@@ -141,7 +141,7 @@ CREATE TABLE public.operation (
 );
 
 
-ALTER TABLE public.operation OWNER TO spacecodee;
+ALTER TABLE public.operation OWNER TO postgres;
 
 --
 -- Name: operation_id_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -156,7 +156,7 @@ CREATE SEQUENCE public.operation_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.operation_id_seq OWNER TO spacecodee;
+ALTER TABLE public.operation_id_seq OWNER TO postgres;
 
 --
 -- Name: operation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
@@ -176,7 +176,7 @@ CREATE TABLE public.permission (
 );
 
 
-ALTER TABLE public.permission OWNER TO spacecodee;
+ALTER TABLE public.permission OWNER TO postgres;
 
 --
 -- Name: permission_id_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -191,7 +191,7 @@ CREATE SEQUENCE public.permission_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.permission_id_seq OWNER TO spacecodee;
+ALTER TABLE public.permission_id_seq OWNER TO postgres;
 
 --
 -- Name: permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
@@ -210,7 +210,7 @@ CREATE TABLE public.role (
 );
 
 
-ALTER TABLE public.role OWNER TO spacecodee;
+ALTER TABLE public.role OWNER TO postgres;
 
 --
 -- Name: role_role_id_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -225,7 +225,7 @@ CREATE SEQUENCE public.role_role_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.role_role_id_seq OWNER TO spacecodee;
+ALTER TABLE public.role_role_id_seq OWNER TO postgres;
 
 --
 -- Name: role_role_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
@@ -248,7 +248,7 @@ CREATE TABLE public.song (
 );
 
 
-ALTER TABLE public.song OWNER TO spacecodee;
+ALTER TABLE public.song OWNER TO postgres;
 
 --
 -- Name: table_name_artist_id_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -263,8 +263,7 @@ CREATE SEQUENCE public.table_name_artist_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.table_name_artist_id_seq OWNER TO spacecodee;
-
+ALTER TABLE public.table_name_artist_id_seq OWNER TO postgres;
 --
 -- Name: table_name_artist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
 --
@@ -287,7 +286,7 @@ CREATE TABLE public.user_s (
 );
 
 
-ALTER TABLE public.user_s OWNER TO spacecodee;
+ALTER TABLE public.user_s OWNER TO postgres;
 
 --
 -- Name: user_s_id_user_s_seq; Type: SEQUENCE; Schema: public; Owner: spacecodee
@@ -302,7 +301,7 @@ CREATE SEQUENCE public.user_s_id_user_s_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_s_id_user_s_seq OWNER TO spacecodee;
+ALTER TABLE public.user_s_id_user_s_seq OWNER TO postgres;
 
 --
 -- Name: user_s_id_user_s_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: spacecodee
