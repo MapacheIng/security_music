@@ -5,5 +5,5 @@ import java.io.Serializable;
 public record ModuleDTO(
         int id,
         String name,
-        String description) implements Serializable {
+        String basePath) implements Serializable {
 }

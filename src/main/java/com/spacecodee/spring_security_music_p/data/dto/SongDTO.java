@@ -7,7 +7,7 @@ public record SongDTO(
         int id,
         String name,
         String artistName,
-        LocalDate releaseDate,
+        LocalDate releasedDate,
         String enabled,
         GenreDTO genreDTO) implements Serializable {
 }
