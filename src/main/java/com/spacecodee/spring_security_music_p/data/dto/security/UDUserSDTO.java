@@ -15,6 +15,6 @@ public class UDUserSDTO implements Serializable {
     private String username;
     @JsonIgnore
     private String password;
-    private UDRoleDTO roleEntity;
+    private UDRoleDTO roleDTO;
 
 }
