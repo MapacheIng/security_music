@@ -11,10 +11,10 @@ import java.io.Serializable;
 public class UDUserSDTO implements Serializable {
 
     private int id;
+    private String name;
     private String username;
     @JsonIgnore
     private String password;
-    private String name;
     private UDRoleDTO roleEntity;
 
 }

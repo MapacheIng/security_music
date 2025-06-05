@@ -10,7 +10,8 @@ public class UDJwtTokenDTO implements Serializable {
 
     private int id;
     private String token;
-    private boolean valid;
     private Date expiryDate;
+    private boolean valid;
+    private UDUserSDTO userSDTO;
 
 }
