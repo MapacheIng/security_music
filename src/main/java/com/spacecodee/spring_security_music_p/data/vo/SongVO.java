@@ -21,7 +21,7 @@ public class SongVO implements Serializable {
     @NotEmpty(message = "artistName cannot be empty")
     @NotBlank(message = "artistName cannot be blank")
     private String artistName;
-    private LocalDate releaseDate;
+    private LocalDate releasedDate;
     private String enabled;
     @NotNull(message = "Genre cannot be null")
     private GenreVO genreVO;

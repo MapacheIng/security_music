@@ -12,6 +12,8 @@ import java.io.Serializable;
 @Data
 public class SaveUserSVO implements Serializable {
 
+    private int id;
+
     @Size(min = 4)
     @NotEmpty
     @NotBlank

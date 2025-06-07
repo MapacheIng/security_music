@@ -3,9 +3,11 @@ package com.spacecodee.spring_security_music_p.data.vo.auth;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 import java.io.Serializable;
 
+@Data
 public class LoginUserSVO implements Serializable {
 
     @Size(min = 3)

@@ -10,5 +10,5 @@ import java.util.Set;
 public class RoleVO implements Serializable {
     private int id;
     private RoleEnum name;
-    private Set<PermissionVO> permissionVO;
+    private Set<PermissionVO> permissions;
 }
