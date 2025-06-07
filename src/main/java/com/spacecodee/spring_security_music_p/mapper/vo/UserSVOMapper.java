@@ -4,6 +4,7 @@ package com.spacecodee.spring_security_music_p.mapper.vo;
 import com.spacecodee.spring_security_music_p.data.vo.auth.LoginUserSVO;
 import com.spacecodee.spring_security_music_p.data.vo.auth.SaveCustomerSVO;
 import com.spacecodee.spring_security_music_p.data.vo.auth.SaveUserSVO;
+import com.spacecodee.spring_security_music_p.data.vo.auth.UpdateUserSVO;
 import com.spacecodee.spring_security_music_p.persisance.entity.UserSEntity;
 import org.mapstruct.*;
 
@@ -26,12 +27,20 @@ public interface UserSVOMapper {
     UserSEntity toEntity(SaveCustomerSVO saveCustomerSVO);
 
     @Mapping(target = "idUserS", source = "id")
-    @Mapping(target = "roleEntity", source = "roleId", qualifiedByName = "setDefaultRole")
+    @Mapping(target = "roleEntity", source = "roleId", qualifiedByName = "mapIntToRoleEntity")
     @Mapping(target = "userSEmail", source = "email")
     @Mapping(target = "userSLastname", source = "lastname")
     @Mapping(target = "userSName", source = "name")
     @Mapping(target = "userSUsername", source = "username")
     UserSEntity voToEntity(SaveUserSVO userVO);
+
+    @Mapping(target = "idUserS", source = "id")
+    @Mapping(target = "roleEntity", source = "roleId", qualifiedByName = "mapIntToRoleEntity")
+    @Mapping(target = "userSEmail", source = "email")
+    @Mapping(target = "userSLastname", source = "lastname")
+    @Mapping(target = "userSName", source = "name")
+    @Mapping(target = "userSUsername", source = "username")
+    UserSEntity voToEntity(UpdateUserSVO userVO);
 
     @Mapping(target = "idUserS", source = "id")
     @Named("mapIntToUserSEntity")
