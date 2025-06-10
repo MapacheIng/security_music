@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -66,7 +67,7 @@ public class GenreServiceImpl implements GenreService {
         if (!existGenre){
             this.genreRepository.save(this.genreVOMapper.voToEntity(genreVo));
         } else {
-            throw this.exceptionShortComponent.cannotSaveUpdateException("genre.exist.by.name", lang);
+            throw this.exceptionShortComponent.cannotSaveUpdateException("genre.found.by.name.not", lang);
         }
     }
 
@@ -76,10 +77,10 @@ public class GenreServiceImpl implements GenreService {
 
         if (!existsGenre) {
             GenreEntity entity = this.genreRepository.findById(genreVo.getId())
-                    .orElseThrow(() -> this.exceptionShortComponent.notFoundException("genre.exists.by.not", lang));
+                    .orElseThrow(() -> this.exceptionShortComponent.notFoundException("genre.found.by.name.not", lang));
             this.genreRepository.save(this.genreVOMapper.partialUpdate(genreVo, entity));
         } else {
-            throw this.exceptionShortComponent.cannotSaveUpdateException("genre.exist.by.name", lang);
+            throw this.exceptionShortComponent.cannotSaveUpdateException("genre.found.by.name.not", lang);
         }
     }
 
@@ -91,18 +92,30 @@ public class GenreServiceImpl implements GenreService {
                             this.genreRepository.save(this.genreDTOMapper.toDisableStatus(genreEntity));
                         },
                         () -> {
-                            throw this.exceptionShortComponent.notFoundException("genre.disabled.errorser", lang);
+                            throw this.exceptionShortComponent.notFoundException("genre.disabled.error", lang);
                         }
                 );
     }
 
     @Override
     public void enableGenre(int genreId, String lang) {
-
+        this.genreRepository
+                .findById(genreId)
+                .ifPresentOrElse(genreEntity -> {
+                            this.genreRepository.save(this.genreDTOMapper.toEnableStatus(genreEntity));
+                        },
+                        () -> {
+                            throw this.exceptionShortComponent.notFoundException("genre.enabled.error", lang);
+                        }
+                );
     }
 
     @Override
     public void deleteGenre(int genreId, String lang) {
-
+        Optional<GenreEntity> existGenre = this.genreRepository.findById(genreId);
+        if (existGenre.isEmpty()) {
+            throw this.exceptionShortComponent.notFoundException("genre.exists.by.id.not", lang);
+        }
+        this.genreRepository.deleteById(genreId);
     }
 }
