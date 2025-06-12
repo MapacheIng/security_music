@@ -5,9 +5,9 @@ import com.spacecodee.spring_security_music_p.data.vo.JwtTokenVO;
 
 public interface JwtTokenService {
 
-    UDJwtTokenDTO findByToken(String token, String lang);
+    UDJwtTokenDTO findByToken(String jwt, String lang);
 
-    UDJwtTokenDTO findByToken(String token);
+    UDJwtTokenDTO findByToken(String jwt);
 
     void save(JwtTokenVO jwtTokenVO);
 
