@@ -6,21 +6,20 @@ import com.spacecodee.spring_security_music_p.mapper.dto.OperationDTOMapper;
 import com.spacecodee.spring_security_music_p.persisance.entity.OperationEntity;
 import com.spacecodee.spring_security_music_p.persisance.repository.OperationRepository;
 import com.spacecodee.spring_security_music_p.service.OperationService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OperationServiceImpl implements OperationService {
 
     private final OperationRepository operationRepository;
     private final OperationDTOMapper operationDTOMapper;
-    private final ExceptionShortComponent exceptionShortComponent;
 
     public OperationServiceImpl(OperationRepository operationRepository,
-                                OperationDTOMapper operationDTOMapper,
-                                ExceptionShortComponent exceptionShortComponent) {
+                                OperationDTOMapper operationDTOMapper) {
         this.operationRepository = operationRepository;
         this.operationDTOMapper = operationDTOMapper;
-        this.exceptionShortComponent = exceptionShortComponent;
     }
 
     @Override
