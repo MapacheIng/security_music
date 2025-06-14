@@ -16,7 +16,7 @@ public interface JwtTokenDTOMapper {
     @Mapping(target = "token", source = "jwtTokenToken")
     @Mapping(target = "valid", source = "jwtTokenIsValid")
     @Mapping(target = "expiryDate", source = "jwtTokenExpiryDate")
-    @Mapping(target = "userSDTO", source = "UserSEntity")
+    @Mapping(target = "userSDTO", source = "userSEntity")
     UDJwtTokenDTO toDto(JwtTokenEntity jwtTokenEntity);
 
 }

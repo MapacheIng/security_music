@@ -1,8 +1,9 @@
 package com.spacecodee.spring_security_music_p.exceptions;
 
 import com.spacecodee.spring_security_music_p.language.MessageUtilComponent;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class ExceptionShortComponent {
 
     private final MessageUtilComponent messageUtilComponent;

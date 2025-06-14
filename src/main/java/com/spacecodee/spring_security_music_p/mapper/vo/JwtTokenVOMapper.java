@@ -23,13 +23,13 @@ public interface JwtTokenVOMapper {
     @Mapping(target = "token", source= "token")
     @Mapping(target = "valid", source = "valid")
     @Mapping(target = "expiryDate", source = "expiryDate")
-    @Mapping(target = "UserVOId", source = "userSDTO.id")
+    @Mapping(target = "userVOId", source = "userSDTO.id")
     JwtTokenVO dtoToVO(UDJwtTokenDTO udJwtTokenDTO);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "token", source="token")
     @Mapping(target = "valid", constant = "true")
-    @Mapping(target = "UserVOId", source = "udUserSId")
+    @Mapping(target = "userVOId", source = "udUserSId")
     @Mapping(target = "expiryDate", source = "expiryDate")
     JwtTokenVO toVOFromUdVO(String token, Date expiryDate, int udUserSId);
 
