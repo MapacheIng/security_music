@@ -54,7 +54,7 @@ public class JwtServiceImpl implements JwtService {
         String authorizationHeader = request.getHeader("Authorization");
         if (authorizationHeader == null ||
                 !authorizationHeader.startsWith("Bearer ") ||
-                StringUtils.hasText(authorizationHeader)) {
+                !StringUtils.hasText(authorizationHeader)) {
             return null;
         }
         return authorizationHeader.split(" ")[1];
