@@ -43,8 +43,8 @@ public class JwtServiceImpl implements JwtService {
 
 
     @Override
-    public Claims extractUsername(String jwt) {
-        return this.extractAllClaims(jwt);
+    public String extractUsername(String jwt) {
+        return this.extractAllClaims(jwt).getSubject();
     }
 
 
