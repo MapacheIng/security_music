@@ -3,6 +3,7 @@ package com.spacecodee.spring_security_music_p.service.impl;
 import com.spacecodee.spring_security_music_p.data.dto.security.UDUserSDTO;
 import com.spacecodee.spring_security_music_p.data.pojo.AuthenticationResponsePojo;
 import com.spacecodee.spring_security_music_p.data.vo.auth.LoginUserSVO;
+import com.spacecodee.spring_security_music_p.jwt.service.JwtService;
 import com.spacecodee.spring_security_music_p.mapper.vo.JwtTokenVOMapper;
 import com.spacecodee.spring_security_music_p.service.AuthenticationService;
 import com.spacecodee.spring_security_music_p.service.JwtTokenService;
@@ -17,14 +18,15 @@ import java.util.Map;
 public class AuthenticationServiceImpl implements AuthenticationService {
 
     private final UserSService userSService;
-//    private final JwtService jwtService;
+    private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
     private final JwtTokenService jwtTokenService;
     private final JwtTokenVOMapper jwtTokenVOMapper;
 
-    public AuthenticationServiceImpl(UserSService userSService, AuthenticationManager authenticationManager,
-                                        JwtTokenService jwtTokenService, JwtTokenVOMapper jwtTokenVOMapper) {
+    public AuthenticationServiceImpl(UserSService userSService, JwtService jwtService, AuthenticationManager authenticationManager,
+                                     JwtTokenService jwtTokenService, JwtTokenVOMapper jwtTokenVOMapper) {
         this.userSService = userSService;
+        this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
         this.jwtTokenService = jwtTokenService;
         this.jwtTokenVOMapper = jwtTokenVOMapper;
