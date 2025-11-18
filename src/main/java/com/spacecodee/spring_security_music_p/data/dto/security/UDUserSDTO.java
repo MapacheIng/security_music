@@ -21,7 +21,7 @@ import java.util.List;
 @Data
 public class UDUserSDTO implements UserDetails, Serializable {
 
-    private int id;
+    private long id;
     private String name;
     private String username;
     @JsonIgnore

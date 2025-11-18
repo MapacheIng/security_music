@@ -1,5 +1,6 @@
 package com.spacecodee.spring_security_music_p.service.impl;
 
+import com.spacecodee.spring_security_music_p.data.dto.security.UDJwtTokenDTO;
 import com.spacecodee.spring_security_music_p.data.dto.security.UDUserSDTO;
 import com.spacecodee.spring_security_music_p.data.pojo.AuthenticationResponsePojo;
 import com.spacecodee.spring_security_music_p.data.vo.auth.LoginUserSVO;
@@ -10,8 +11,12 @@ import com.spacecodee.spring_security_music_p.service.JwtTokenService;
 import com.spacecodee.spring_security_music_p.service.UserSService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.util.Date;
 import java.util.Map;
 
 @Service
@@ -34,21 +39,50 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public AuthenticationResponsePojo login(LoginUserSVO loginUserSVO) {
-        return null;
+        UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken(loginUserSVO.getUsername(), loginUserSVO.getPassword());
+        this.authenticationManager.authenticate(authentication);
+
+        UDUserSDTO username = this.userSService.findOneByUsername(loginUserSVO.getUsername());
+        String jwt = this.jwtService.generateToken(username, this.generateExtraClaims(username));
+        this.saveUserToken(jwt, username);
+        return new AuthenticationResponsePojo(jwt);
+    }
+
+    private void saveUserToken(String jwt, UDUserSDTO username) {
+        Date expiration = this.jwtService.extractExpiration(jwt);
+        this.jwtTokenService.save(this.jwtTokenVOMapper.toVOFromUdVO(jwt, expiration, (int) username.getId()));
     }
 
     @Override
     public boolean validateToken(String jwt) {
-        return false;
+        try {
+            this.jwtService.extractUsername(jwt);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
     public UDUserSDTO findLoggedUser() {
-        return null;
+        UsernamePasswordAuthenticationToken authentication =
+                (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getPrincipal().toString();
+        return this.userSService.findOneByUsername(username);
     }
 
     @Override
     public void logout(HttpServletRequest request) {
+        String jwt = this.jwtService.extractJwtFromRequest(request);
+        if (!StringUtils.hasText(jwt)){
+            return;
+        }
+        UDJwtTokenDTO token = this.jwtTokenService.findByToken(jwt);
+        if (token.isValid() && StringUtils.hasText(token.getToken())) {
+            token.setValid(false);
+            this.jwtTokenService.save(this.jwtTokenVOMapper.dtoToVO(token));
+        }
 
     }
 
